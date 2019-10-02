@@ -59,6 +59,11 @@ class DataManager{
         mysqli_query($this->conn,$CreateUserTable);
         echo ("Running5");
     }
+    public function Login(string $userName,string $password){
 
+    }
+    public  function NewUser(string $userName,string $password,string $email,float $balance){
+
+    }
 }
 ?>
