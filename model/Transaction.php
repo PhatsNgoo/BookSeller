@@ -1,8 +1,8 @@
 <?php
 class Transaction{
-	public int $state;
+	public $state;
 	public $bookID;
-	public string $userID;
-	public string $time;
+	public $userID;
+	public $time;
 }
 ?>

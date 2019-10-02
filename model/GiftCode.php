@@ -1,6 +1,6 @@
 <?php
 class GiftCode{
-	public string $code;
-	public float $value;
+	public $code;
+	public $value;
 }
 ?>
