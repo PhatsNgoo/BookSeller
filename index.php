@@ -5,20 +5,25 @@ require('StringUtils.php');
 
 $dataMng=new DataManager();
 $dataMng->ConnectDb();
-$action=isset($_POST['action'])?$_POST['action']:'';
-$signin=isset($_POST['SignIn'])?$_POST['SignIn']:'';
-if ($signin){
-    $userName=$_POST['UserNameSignIn'];
-    $password=$_POST['NewPassword'];
-    $email=$_POST['Email'];
-    $dataMng->NewUser($userName,$password,$email,0.0);
+$login=isset($_POST['LogIn'])?$_POST['LogIn']:'';
+$signin=isset($_POST['LogIn'])?$_POST['LogIn']:'';
+//if ($signin){
+//    $userName=$_POST['UserNameSignIn'];
+//    $password=$_POST['NewPassword'];
+//    $email=$_POST['Email'];
+//    $dataMng->NewUser($userName,$password,$email,0.0);
+//}
+if ($login){
+    $userName=$_POST['UserName'];
+    $password=$_POST['Password'];
+    $dataMng->Login($userName,$password);
 }
 ?>
 <FORM method="post">
     <input type="textbox" name="UserName" placeholder="UserName">
     <input type="textbox" name="Password" placeholder="Password">
 
-    <input type="submit" name="action" value="Login">
+    <input type="submit" name="LogIn" value="Login">
 </FORM>
 <br>
 <FORM method="post">

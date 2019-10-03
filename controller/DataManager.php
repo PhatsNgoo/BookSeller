@@ -54,7 +54,17 @@ class DataManager{
         mysqli_query($this->conn,$CreateUserTable);
     }
     public function Login(string $userName,string $password){
-
+        $Query='select Password from user where (UserName="'.$userName.'")';
+        $result=mysqli_query($this->conn,$Query);
+        $rowRes=mysqli_fetch_row($result);
+        if($password==$rowRes[0])
+        {
+            echo "login successful";
+        }
+        else
+        {
+            echo "Login fail";
+        }
     }
     public function NewUser(string $userName,string $password,string $email,float $balance){
         $GenerateUID='select count(*) from user';
