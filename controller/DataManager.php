@@ -17,11 +17,9 @@ class DataManager{
 
     public function InitDatabase(){
         echo $this->CreateTable();
-        echo ("Create table");
     }
     public function CreateTable(){
-        echo ("Running1");
-        $CreateBookTable='create table Book(
+        $CreateBookTable='create table if not exists Book(
                             BookID varchar(13) not null ,
                             Title varchar(50) not null,
                             Price float not null,
@@ -30,15 +28,13 @@ class DataManager{
                             CONSTRAINT BOOK_PK PRIMARY KEY (BookID)
                         )';
         mysqli_query($this->conn,$CreateBookTable);
-        echo ("Running2");
-        $CreateGCTable='create table GiftCode(
+        $CreateGCTable='create table if not exists GiftCode(
                             Code varchar(15) not null,
                             Value float not null,
                             CONSTRAINT  GC_PK PRIMARY KEY (Code)
                         )';
         mysqli_query($this->conn,$CreateGCTable);
-        echo ("Running3");
-        $CreateTransactionTable='create table Transaction(
+        $CreateTransactionTable='create table if not exists Transaction(
                                     TransactionID varchar(20) not null,
                                     State int not null,
                                     BookID varchar(13) not null,
@@ -47,23 +43,30 @@ class DataManager{
                                     CONSTRAINT TRANSACTION_PK PRIMARY KEY (TransactionID)
                         )';
         mysqli_query($this->conn,$CreateTransactionTable);
-        echo ("Running4");
-        $CreateUserTable='create table User(
+        $CreateUserTable='create table if not exists User(
                                 UserName varchar(15) not null,
                                 UserID varchar (15) not null,
                                 Password varchar (15) not null,
                                 Email varchar(25) not null,
                                 Balance float not null ,
-                                CONSTRAINT USER_PK PRIMARY KEY (UserID)
+                                CONSTRAINT USER_PK PRIMARY KEY (UserName)
                         )';
         mysqli_query($this->conn,$CreateUserTable);
-        echo ("Running5");
     }
     public function Login(string $userName,string $password){
 
     }
-    public  function NewUser(string $userName,string $password,string $email,float $balance){
-
+    public function NewUser(string $userName,string $password,string $email,float $balance){
+        $GenerateUID='select count(*) from user';
+        $result=mysqli_query($this->conn,$GenerateUID);
+        $rowRes=mysqli_fetch_row($result);
+        $userID=$rowRes[0]+1;
+        echo $rowRes[0];
+        echo $userID;
+        $Query='INSERT INTO user VALUES(
+	                    "'.$userName.'","'.$userID.'","'.$password.'","'.$email.'",'.$balance.'
+                    )';
+        mysqli_query($this->conn,$Query);
     }
 }
 ?>
