@@ -2,6 +2,7 @@
 require('Config.php');
 require('controller/DataManager.php');
 require('StringUtils.php');
+require('Layout/User_Layout_Header.php');
 
 $dataMng=new DataManager();
 $dataMng->ConnectDb();
@@ -34,3 +35,6 @@ if (isset($_POST['LogIn'])){
     <input type="submit" name="SignIn" value="SignIn">
 
 </FORM>
+<?php
+require('Layout/User_Layout_Footer.php');
+?>

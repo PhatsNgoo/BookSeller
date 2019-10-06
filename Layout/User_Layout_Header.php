@@ -1,0 +1,11 @@
+<?php
+?>
+<html>
+<header>
+    <title>BoolSeller</title>
+    <button>Books</button>
+    <button>Category</button>
+    <button>Cart</button>
+    <button>UserInfo</button>
+</header>
+</html>
