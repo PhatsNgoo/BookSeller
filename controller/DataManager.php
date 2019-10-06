@@ -78,5 +78,8 @@ class DataManager{
                     )';
         mysqli_query($this->conn,$Query);
     }
+    public function NewBooks(string $bookID,string $title,float $price,string $description,string $author){
+
+    }
 }
 ?>
