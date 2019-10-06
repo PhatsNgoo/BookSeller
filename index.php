@@ -26,11 +26,12 @@ if (isset($_POST['LogIn'])){
 if (isset($_POST['NewBook'])) {
     $bookID=$_POST['BookID'];
     $bookName=$_POST['BookName'];
+    $category=$_POST['BookCategory'];
     $bookDescription=$_POST['BookDescription'];
     $price=$_POST['BookPrice'];
     echo $price;
     $author=$_POST['Author'];
-    $result=$dataMng->NewBooks($bookID,$bookName,$price,$bookDescription,$author);
+    $result=$dataMng->NewBooks($bookID,$bookName,$price,$bookDescription,$author,$category);
     if ($result==true){
         $targetDir='Assets/BooksImage/';
         $imageFileType = strtolower(pathinfo(basename($_FILES['BookImage']['name']),PATHINFO_EXTENSION));
@@ -88,6 +89,8 @@ if (isset($_POST['NewBook'])) {
     <input type="textbox" name="BookName" placeholder="Book Name">
     <br>
     <input type="textbox" name="BookID" placeholder="Book ID">
+    <br>
+    <input type="textbox" name="BookCategory" placeholder="Category">
     <br>
     <input type="textbox" name="BookDescription" placeholder="Book Description">
     <br>

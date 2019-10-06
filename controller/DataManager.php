@@ -21,6 +21,7 @@ class DataManager{
     public function CreateTable(){
         $CreateBookTable='create table if not exists Book(
                             BookID varchar(13) not null ,
+                            Category varchar(20) not null,
                             Title varchar(50) not null,
                             Price float not null,
                             Description varchar(1000) not null,
@@ -78,9 +79,9 @@ class DataManager{
                     )';
         mysqli_query($this->conn,$Query);
     }
-    public function NewBooks(string $bookID,string $title,float $price,string $description,string $author){
+    public function NewBooks(string $bookID,string $title,float $price,string $description,string $author,string $category){
         if ($bookID!==null && $bookID!='') {
-            $Query = 'insert into book values("' . $bookID . '","' . $title . '",'. $price .',"' . $description . '","' . $author . '")';
+            $Query = 'insert into book values("' . $bookID . '","' . $title . '",'. $price .',"' . $description . '","' . $author . '","'.$category.'")';
             echo $Query;
             mysqli_query($this->conn, $Query);
             return true;
