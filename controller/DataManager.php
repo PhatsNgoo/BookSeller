@@ -79,7 +79,17 @@ class DataManager{
         mysqli_query($this->conn,$Query);
     }
     public function NewBooks(string $bookID,string $title,float $price,string $description,string $author){
-
+        if ($bookID!==null && $bookID!='') {
+            $Query = 'insert into book values("' . $bookID . '","' . $title . '",'. $price .',"' . $description . '","' . $author . '")';
+            echo $Query;
+            mysqli_query($this->conn, $Query);
+            return true;
+        }
+        else
+        {
+            echo 'Book ID cannot be null or empty';
+            return false;
+        }
     }
 }
 ?>
