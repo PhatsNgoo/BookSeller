@@ -1,5 +1,5 @@
 <?php
-require_once('controller/DataManager.php.php');
+require_once('controller/DataManager.php');
 class GiftCode{
 	public $code;
 	public $value;

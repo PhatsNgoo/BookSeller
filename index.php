@@ -1,70 +1,13 @@
 <?php
-require('Config.php');
-require('controller/DataManager.php');
-require('StringUtils.php');
-require('Layout/User_Layout_Header.php');
+require_once('Config.php');
+require_once('controller/DataManager.php');
+require_once('controller/Controller.php');
+require_once('StringUtils.php');
+require_once('Layout/User_Layout_Header.php');
 
-$dataMng=new DataManager();
-$login=isset($_POST['LogIn'])?$_POST['LogIn']:'';
-$signin=isset($_POST['SignIn'])?$_POST['SignIn']:'';
-$submitBook=isset($_POST['NewBook'])?$_POST['NewBook']:'';
-//Sign in function
-if (isset($_POST['SignIn'])){
-    $userName=$_POST['UserNameSignIn'];
-    $password=$_POST['NewPassword'];
-    $email=$_POST['Email'];
-    $dataMng->NewUser($userName,$password,$email,0.0);
-}
-//Login function
-if (isset($_POST['LogIn'])){
-    $userName=$_POST['UserName'];
-    $password=$_POST['Password'];
-    $dataMng->Login($userName,$password);
-}
-//Add book function
-if (isset($_POST['NewBook'])) {
-    $bookName=$_POST['BookName'];
-    $category=$_POST['BookCategory'];
-    $bookDescription=$_POST['BookDescription'];
-    $price=$_POST['BookPrice'];
-    echo $price;
-    $author=$_POST['Author'];
-    $result=$dataMng->NewBooks($bookName,$price,$bookDescription,$author,$category);
-    if ($result==true){
-        $targetDir='Assets/BooksImage/';
-        $imageFileType = strtolower(pathinfo(basename($_FILES['BookImage']['name']),PATHINFO_EXTENSION));
-        $targetFile = $targetDir .$bookID.'.'.$imageFileType;
-        echo $targetFile;
-        $uploadState=1;
-        $check=getimagesize($_FILES['BookImage']['tmp_name']);
-        if ($check!==false)
-        {
-            $uploadState=1;
-        }
-        else
-        {
-            $uploadState=0;
-        }
-        //Check if file is exist
-        if (file_exists($targetFile)){
-            $uploadState=0;
-        }
-        //Check file extension
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadState = 0;
-        }
-        if ($uploadState!==0)
-        {
-            move_uploaded_file($_FILES['BookImage']['tmp_name'],$targetFile);
-        }
-    }
-    else
-    {
-        echo 'Failed to submit new book';
-    }
-}
+$controller=new Controller();
+$controller->run();
+
 ?>
 <FORM method="post">
     <input type="textbox" name="UserName" placeholder="UserName">
