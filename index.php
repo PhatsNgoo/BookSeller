@@ -5,7 +5,6 @@ require('StringUtils.php');
 require('Layout/User_Layout_Header.php');
 
 $dataMng=new DataManager();
-$dataMng->ConnectDb();
 $login=isset($_POST['LogIn'])?$_POST['LogIn']:'';
 $signin=isset($_POST['SignIn'])?$_POST['SignIn']:'';
 $submitBook=isset($_POST['NewBook'])?$_POST['NewBook']:'';
@@ -24,14 +23,13 @@ if (isset($_POST['LogIn'])){
 }
 //Add book function
 if (isset($_POST['NewBook'])) {
-    $bookID=$_POST['BookID'];
     $bookName=$_POST['BookName'];
     $category=$_POST['BookCategory'];
     $bookDescription=$_POST['BookDescription'];
     $price=$_POST['BookPrice'];
     echo $price;
     $author=$_POST['Author'];
-    $result=$dataMng->NewBooks($bookID,$bookName,$price,$bookDescription,$author,$category);
+    $result=$dataMng->NewBooks($bookName,$price,$bookDescription,$author,$category);
     if ($result==true){
         $targetDir='Assets/BooksImage/';
         $imageFileType = strtolower(pathinfo(basename($_FILES['BookImage']['name']),PATHINFO_EXTENSION));
@@ -87,8 +85,6 @@ if (isset($_POST['NewBook'])) {
     <input type="file" name="BookImage" value="BookImage">
     <br>
     <input type="textbox" name="BookName" placeholder="Book Name">
-    <br>
-    <input type="textbox" name="BookID" placeholder="Book ID">
     <br>
     <input type="textbox" name="BookCategory" placeholder="Category">
     <br>

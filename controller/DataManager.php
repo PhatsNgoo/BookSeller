@@ -1,7 +1,16 @@
 <?php
 require_once ('Config.php');
+require_once ('model/Order.php');
+require_once ('model/Transaction.php');
+require_once ('model/User.php');
+require_once ('model/Book.php');
+require_once ('model/GiftCode.php');
 class DataManager{
     public $conn;
+    public function __construct()
+    {
+        $this->ConnectDb();
+    }
 
     public function ConnectDb(){
         $this->conn=new mysqli(servername,username,password,db);
@@ -10,64 +19,24 @@ class DataManager{
         }
         else
         {
-            echo $this->InitDatabase();
-            echo ("Init database");
+            echo ("Connect successfuly");
         }
     }
 
-    public function InitDatabase(){
-        echo $this->CreateTable();
-    }
-    public function CreateTable(){
-        $CreateBookTable='create table if not exists Book(
-                            BookID varchar(13) not null ,
-                            Category varchar(20) not null,
-                            Title varchar(50) not null,
-                            Price float not null,
-                            Description varchar(1000) not null,
-                            Author varchar(60) not null,
-                            CONSTRAINT BOOK_PK PRIMARY KEY (BookID)
-                        )';
-        mysqli_query($this->conn,$CreateBookTable);
-        $CreateGCTable='create table if not exists GiftCode(
-                            Code varchar(15) not null,
-                            Value float not null,
-                            CONSTRAINT  GC_PK PRIMARY KEY (Code)
-                        )';
-        mysqli_query($this->conn,$CreateGCTable);
-        $CreateTransactionTable='create table if not exists Transaction(
-                                    TransactionID varchar(20) not null,
-                                    State int not null,
-                                    BookID varchar(13) not null,
-                                    UserID varchar(15) not null,
-                                    Time datetime not null ,
-                                    CONSTRAINT TRANSACTION_PK PRIMARY KEY (TransactionID)
-                        )';
-        mysqli_query($this->conn,$CreateTransactionTable);
-        $CreateUserTable='create table if not exists User(
-                                UserName varchar(15) not null,
-                                UserID varchar (15) not null,
-                                Password varchar (15) not null,
-                                Email varchar(25) not null,
-                                Balance float not null ,
-                                CONSTRAINT USER_PK PRIMARY KEY (UserName)
-                        )';
-        mysqli_query($this->conn,$CreateUserTable);
-    }
     public function Login(string $userName,string $password){
         $Query='select Password from user where (UserName="'.$userName.'")';
         $result=mysqli_query($this->conn,$Query);
         $rowRes=mysqli_fetch_row($result);
         if($password==$rowRes[0])
         {
-            echo "login successful";
+            return true;
         }
         else
         {
-            echo "Login fail";
+            return false;
         }
     }
-    public function NewUser(string $userName,string $password,string $email,float $balance){
+    public function NewUser(User $newUser){
         $GenerateUID='select count(*) from user';
         $result=mysqli_query($this->conn,$GenerateUID);
         $rowRes=mysqli_fetch_row($result);
@@ -75,13 +44,17 @@ class DataManager{
         echo $rowRes[0];
         echo $userID;
         $Query='INSERT INTO user VALUES(
-	                    "'.$userName.'","'.$userID.'","'.$password.'","'.$email.'",'.$balance.'
+	                    "'.$newUser->userName.'","'.$userID.'","'.$newUser->password.'","'.$newUser->email.'",'.$newUser->balance.'
                     )';
         mysqli_query($this->conn,$Query);
     }
-    public function NewBooks(string $bookID,string $title,float $price,string $description,string $author,string $category){
+    public function NewBooks(Book $newBook){
+        $GenerateBID='select count(*) from book';
+        $result=mysqli_query($this->conn,$GenerateBID);
+        $rowRes=mysqli_fetch_row($result);
+        $bookID=$rowRes[0]+1;
         if ($bookID!==null && $bookID!='') {
-            $Query = 'insert into book values("' . $bookID . '","' . $title . '",'. $price .',"' . $description . '","' . $author . '","'.$category.'")';
+            $Query = 'insert into book values("' . $bookID . '","' . $newBook->title . '",'. $newBook->price .',"' . $newBook->description . '","' . $newBook->author . '","'.$newBook->category.'")';
             echo $Query;
             mysqli_query($this->conn, $Query);
             return true;
@@ -91,6 +64,28 @@ class DataManager{
             echo 'Book ID cannot be null or empty';
             return false;
         }
+    }
+    public function GetAllBooks(){
+        $Query='select * from book';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
+    }
+    public function NewOrder(Order $order)
+    {
+        $GenerateID='select count(*) from orderbook';
+        $result=mysqli_query($this->conn,$GenerateID);
+        $rowRes=mysqli_fetch_row($result);
+        $orderID=$rowRes[0]+1;
+        $Query='insert into OrderBook values ("'.$orderID.'",'.$order->state.',"'.$order->bookID.'","'.$order->userID.'","'.$order->dateTime.'","'.$order->shippingAddress.'")';
+        mysqli_query($this->conn,$Query);
+    }
+    public function NewTransaction(Transaction $trans){
+        $GenerateID='select count(*) from transaction';
+        $result=mysqli_query($this->conn,$GenerateID);
+        $rowRes=mysqli_fetch_row($result);
+        $transactionID=$rowRes[0]+1;
+        $Query='insert into OrderBook values ("'.$transactionID.'",'.$trans->state.',"'.$trans->bookID.'","'.$trans->userID.'","'.$trans->dateTime.'","'.$trans->shippingAddress.'")';
+        mysqli_query($this->conn,$Query);
     }
 }
 ?>
