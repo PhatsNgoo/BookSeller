@@ -40,6 +40,9 @@ $controller->run();
 
     <input type="submit" name="NewBook" value="NewBook">
 </FORM>
+<FORM method="post" action="index.php">
+    <input type="submit" name="GetAllBook" value="Get all book">
+</FORM>
 <?php
 require('Layout/User_Layout_Footer.php');
 ?>

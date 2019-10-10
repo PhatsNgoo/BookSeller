@@ -67,6 +67,7 @@ class Controller{
                     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                     $uploadState = 0;
                 }
+                $targetFile = $targetDir .$bookID.'.jpg';
                 if ($uploadState!==0)
                 {
                     move_uploaded_file($_FILES['BookImage']['tmp_name'],$targetFile);
@@ -75,6 +76,14 @@ class Controller{
             else
             {
                 echo 'Failed to submit new book';
+            }
+        }
+        //Get all books function
+        if (isset($_POST['GetAllBook'])){
+            $bookList=$this->dataMng->GetAllBooks();
+            while($row = mysqli_fetch_assoc($bookList)) {
+                echo 'Book name :'.$row['Title'].'-Author : '.$row['Author'].'-Price : '.$row['Price'].'-Category : '.$row['Category'].'<br>';
+                echo '<img width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$row['BookID'].'.jpg"> <br>';
             }
         }
     }

@@ -15,11 +15,11 @@ class DataManager{
     public function ConnectDb(){
         $this->conn=new mysqli(servername,username,password,db);
         if (!$this->conn){
-            echo ("Connection failed".mysqli_connect_error());
+            echo ("Connection failed <br>".mysqli_connect_error());
         }
         else
         {
-            echo ("Connect successfuly");
+            echo ("Connect successfuly <br>");
         }
     }
 
