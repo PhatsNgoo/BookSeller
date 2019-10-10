@@ -29,10 +29,12 @@ class DataManager{
         $rowRes=mysqli_fetch_row($result);
         if($password==$rowRes[0])
         {
+            echo 'login successful';
             return true;
         }
         else
         {
+            echo 'login fail';
             return false;
         }
     }

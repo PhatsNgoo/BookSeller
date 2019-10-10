@@ -7,25 +7,16 @@ class User{
 	public $email;
 	public $balance;
     private $dataMng;
-	public function __construct()
+	public function __construct($userName,$password,$email)
     {
-    }
-    public function LogIn(string $userName,string $password){
-        $this->dataMng=new DataManager();
-        $result=$this->dataMng->Login($userName,$password);
-        if ($result)
-        {
-            echo 'Login success';
-        }
-        else
-        {
-            echo 'Login false';
-        }
+        $this->userName=$userName;
+        $this->password=$password;
+        $this->email=$email;
+        $this->balance=0.0;
     }
     public function SignIn(){
-        $user=new User();
         $this->dataMng=new DataManager();
-        $this->dataMng->NewUser($user);
+        $this->dataMng->NewUser($this);
     }
 }
 ?>

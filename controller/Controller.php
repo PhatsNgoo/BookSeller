@@ -22,8 +22,8 @@ class Controller{
             $userName=$_POST['UserNameSignIn'];
             $password=$_POST['NewPassword'];
             $email=$_POST['Email'];
-            $user=new User();
-            $this->dataMng->NewUser($userName,$password,$email,0.0);
+            $user=new User($userName,$password,$email);
+            $user->SignIn();
         }
 //Login function
         if (isset($_POST['LogIn'])){
