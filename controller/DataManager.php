@@ -79,6 +79,13 @@ class DataManager{
         $Query='insert into OrderBook values ("'.$orderID.'",'.$order->state.',"'.$order->bookID.'","'.$order->userID.'","'.$order->dateTime.'","'.$order->shippingAddress.'")';
         mysqli_query($this->conn,$Query);
     }
+    public function GenerateBookID(){
+        $GenerateBID='select count(*) from book';
+        $result=mysqli_query($this->conn,$GenerateBID);
+        $rowRes=mysqli_fetch_row($result);
+        $bookID=$rowRes[0]+1;
+        return $bookID;
+    }
     public function NewTransaction(Transaction $trans){
         $GenerateID='select count(*) from transaction';
         $result=mysqli_query($this->conn,$GenerateID);

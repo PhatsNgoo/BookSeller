@@ -9,17 +9,23 @@ class Book{
 	public $category;
     private $dataMng;
 
-	public function __construct($title,$price,$author,$description,$bookID){
+	public function __construct($title,$price,$author,$description,$category,$bookID){
 		$this->title=$title;
 		$this->price=$price;
 		$this->description=$description;
 		$this->author=$author;
 		$this->bookID=$bookID;
+		$this->category=$category;
 	}
 	public function AddNewBook(){
-        $book=new Book();
         $this->dataMng=new DataManager();
-        $this->dataMng->NewBooks($book);
+        $result=$this->dataMng->NewBooks($this);
+        if ($result==true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 ?>

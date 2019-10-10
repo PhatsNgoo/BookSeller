@@ -22,6 +22,7 @@ class Controller{
             $userName=$_POST['UserNameSignIn'];
             $password=$_POST['NewPassword'];
             $email=$_POST['Email'];
+            $user=new User();
             $this->dataMng->NewUser($userName,$password,$email,0.0);
         }
 //Login function
@@ -38,11 +39,13 @@ class Controller{
             $price=$_POST['BookPrice'];
             echo $price;
             $author=$_POST['Author'];
-            $result=$this->dataMng->NewBooks($bookName,$price,$bookDescription,$author,$category);
+            $bookID=$this->dataMng->GenerateBookID();
+            $book=new Book($bookName,$price,$author,$bookDescription,$category,$bookID);
+            $result=$book->AddNewBook();
             if ($result==true){
                 $targetDir='Assets/BooksImage/';
                 $imageFileType = strtolower(pathinfo(basename($_FILES['BookImage']['name']),PATHINFO_EXTENSION));
-                $targetFile = $targetDir .$bookName.'.'.$imageFileType;
+                $targetFile = $targetDir .$bookID.'.'.$imageFileType;
                 echo $targetFile;
                 $uploadState=1;
                 $check=getimagesize($_FILES['BookImage']['tmp_name']);
