@@ -17,7 +17,7 @@ class Controller{
 //        $login=isset($_POST['LogIn'])?$_POST['LogIn']:'';
 //        $signin=isset($_POST['SignIn'])?$_POST['SignIn']:'';
 //        $submitBook=isset($_POST['NewBook'])?$_POST['NewBook']:'';
-//Sign in function
+        //Sign in function
         if (isset($_POST['SignIn'])){
             $userName=$_POST['UserNameSignIn'];
             $password=$_POST['NewPassword'];
@@ -25,13 +25,13 @@ class Controller{
             $user=new User($userName,$password,$email);
             $user->SignIn();
         }
-//Login function
+        //Login function
         if (isset($_POST['LogIn'])){
             $userName=$_POST['UserName'];
             $password=$_POST['Password'];
             $this->dataMng->Login($userName,$password);
         }
-//Add book function
+        //Add book function
         if (isset($_POST['NewBook'])) {
             $bookName=$_POST['BookName'];
             $category=$_POST['BookCategory'];
@@ -85,6 +85,19 @@ class Controller{
                 echo 'Book name :'.$row['Title'].'-Author : '.$row['Author'].'-Price : '.$row['Price'].'-Category : '.$row['Category'].'<br>';
                 echo '<img width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$row['BookID'].'.jpg"> <br>';
             }
+        }
+        //Add new gift code function
+        if (isset($_POST['SubmitNewCode'])){
+            $code=$_POST['NewGiftCode'];
+            $value=$_POST['GiftCodeValue'];
+            $giftCode=new GiftCode($code,$value);
+            $giftCode->AddNewCode();
+        }
+        //Verify gift code function
+        if (isset($_POST['SubmitCode'])){
+            $code=$_POST['GiftCode'];
+            $giftCode=new GiftCode(0,0);
+            $giftCode->VerifyCode($code,1);
         }
     }
 }

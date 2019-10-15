@@ -72,6 +72,38 @@ class DataManager{
         $result=mysqli_query($this->conn,$Query);
         return $result;
     }
+    public function NewGiftCode(GiftCode $code){
+        $Query='insert into giftcode values ("'.$code->code.'",'.$code->value.',true)';
+        $result=mysqli_query($this->conn,$Query);
+        if ($result){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public function VerifyGift(string $code){
+        $Query='select * from giftcode where Code="'.$code.'"';
+        $result=mysqli_query($this->conn,$Query);
+        $row=mysqli_fetch_assoc($result);
+        if ($row['Useable']==true || $row['Useable']=='true'|| $row['Useable']=='1'|| $row['Useable']==1)
+        {
+            return $row['Value'];
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public function AddGift($value,$userID){
+        $Query='select Balance from user where UserID="'.$userID.'"';
+        $result=mysqli_query($this->conn,$Query);
+        $row=mysqli_fetch_assoc($result);
+        $newBalance=$row['Balance']+$value;
+        $Query='update user set Balance='.$newBalance.' where UserID="'.$userID.'"';
+        mysqli_query($this->conn,$Query);
+    }
     public function NewOrder(Order $order)
     {
         $GenerateID='select count(*) from orderbook';

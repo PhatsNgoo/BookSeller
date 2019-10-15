@@ -43,6 +43,18 @@ $controller->run();
 <FORM method="post" action="index.php">
     <input type="submit" name="GetAllBook" value="Get all book">
 </FORM>
+<FORM method="post">
+    <input type="textbox" name="NewGiftCode" placeholder="New Gift Code">
+    <br>
+    <input type="number" step="0.01" name="GiftCodeValue" placeholder="Value">
+    <br>
+    <input type="submit" name="SubmitNewCode" value="Submit">
+</FORM>
+<FORM method="post">
+    <input type="textbox" name="GiftCode" placeholder="Enter Code Here">
+    <br>
+    <input type="submit" name="SubmitCode" value="Submit">
+</FORM>
 <?php
 require('Layout/User_Layout_Footer.php');
 ?>
