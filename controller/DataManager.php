@@ -125,8 +125,9 @@ class DataManager{
         $result=mysqli_query($this->conn,$GenerateID);
         $rowRes=mysqli_fetch_row($result);
         $transactionID=$rowRes[0]+1;
-        $Query='insert into OrderBook values ("'.$transactionID.'",'.$trans->state.',"'.$trans->bookID.'","'.$trans->userName.'","'.$trans->dateTime.'","'.$trans->shippingAddress.'")';
+        $Query='insert into transaction values ("'.$transactionID.'",'.$trans->state.',"'.$trans->bookID.'","'.$trans->userName.'","'.$trans->shippingAddress.'","'.$trans->dateTime.'")';
         mysqli_query($this->conn,$Query);
+        echo $Query;
     }
 }
 ?>

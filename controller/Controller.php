@@ -100,9 +100,14 @@ class Controller{
             $giftCode->VerifyCode($code,1);
         }
         //Add new transaction
-        if (true){
-//            $transaction=new Transaction();
-//            $transaction->AddNewTransaction();
+        if (isset($_POST['NewTransaction'])){
+            $userName=$_POST['UserName_Order'];
+            $bookID=2;
+            $shippingAddress=$_POST['ShippingAddress'];
+            $date = date('m/d/Y', time());
+            echo $date;
+            $transaction=new Transaction($userName,$bookID,1,$date,$shippingAddress);
+            $transaction->AddNewTransaction();
         }
     }
 }

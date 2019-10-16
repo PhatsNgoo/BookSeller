@@ -56,7 +56,14 @@ $controller->run();
     <input type="submit" name="SubmitCode" value="Submit">
 </FORM>
 <FORM method="post">
+    <input type="textbox" name="UserName_Order" placeholder="Customer ID">
+    <br>
+    <input type="textbox" name="BookID" placeholder="Book ID">
+    <br>
+    <input type="textbox" name="ShippingAddress" placeholder="Shipping to...">
+    <br>
 
+    <input type="submit" name="NewTransaction" value="Order book">
 </FORM>
 <?php
 require('Layout/User_Layout_Footer.php');
