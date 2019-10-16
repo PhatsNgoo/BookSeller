@@ -55,6 +55,9 @@ $controller->run();
     <br>
     <input type="submit" name="SubmitCode" value="Submit">
 </FORM>
+<FORM method="post">
+
+</FORM>
 <?php
 require('Layout/User_Layout_Footer.php');
 ?>

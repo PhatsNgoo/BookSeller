@@ -2,7 +2,7 @@
 ?>
 <html>
 <header>
-    <title>BoolSeller</title>
+    <title>BookSeller</title>
     <button>Books</button>
     <button>Category</button>
     <button>Cart</button>

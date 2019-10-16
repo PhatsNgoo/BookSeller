@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2019 at 05:36 PM
+-- Generation Time: Oct 16, 2019 at 04:36 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -43,7 +43,11 @@ CREATE TABLE `book` (
 
 INSERT INTO `book` (`BookID`, `Title`, `Price`, `Description`, `Author`, `Category`) VALUES
 ('1', 'First book', 5, 'This is a testing book', 'Johnnnn', 'Action'),
-('2', 'Second book', 6.99, 'This is second fucking book', 'Johnnnn', 'Action');
+('2', 'Second book', 6.99, 'This is second fucking book', 'Johnnnn', 'Action'),
+('3', 'The third book', 8.99, 'This is third book in store', 'David James', 'Drama'),
+('4', 'Fourth Book', 8.99, 'Too lazy for write description', 'Vincinus', 'Science'),
+('5', 'Fifth Book', 7.99, 'Lazzyyyyy', 'Vinnn', 'Story'),
+('6', 'Sixth Book', 7.99, 'Lazzy', 'Ahnna', 'English');
 
 -- --------------------------------------------------------
 
@@ -53,8 +57,17 @@ INSERT INTO `book` (`BookID`, `Title`, `Price`, `Description`, `Author`, `Catego
 
 CREATE TABLE `giftcode` (
   `Code` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `Value` float NOT NULL
+  `Value` float NOT NULL,
+  `Useable` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Dumping data for table `giftcode`
+--
+
+INSERT INTO `giftcode` (`Code`, `Value`, `Useable`) VALUES
+('S3phjr0th', 15, 1),
+('Uzur3u2w', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -66,8 +79,9 @@ CREATE TABLE `transaction` (
   `TransactionID` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `State` int(11) NOT NULL,
   `BookID` varchar(13) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `UserID` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `Time` datetime NOT NULL
+  `UserName` varchar(15) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `ShippingAddress` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `DateTime` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -89,8 +103,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserName`, `UserID`, `Password`, `Email`, `Balance`) VALUES
-('phatsngoo', '1', 'Uzur3u2w', 'phatsngoo2702@gmail.com', 0),
-('vicinus', '2', 'iow8ehw8', 'vinnnvvv@gmail.com', 0);
+('fourhtacc', '3', 'aacc1234', 'kelldjn@gmail.com', 0),
+('kelvjn', '4', 'iow8ehw8', 'kelvingH@gmail.com', 0),
+('phatsngoo', '1', 'Uzur3u2w', 'phatsngoo2702@gmail.com', 10),
+('vicinus', '2', 'iow8ehw8', 'vinnnvvv@gmail.com', 9);
 
 --
 -- Indexes for dumped tables
@@ -112,13 +128,26 @@ ALTER TABLE `giftcode`
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`TransactionID`);
+  ADD PRIMARY KEY (`TransactionID`),
+  ADD KEY `FK_UserID` (`UserName`),
+  ADD KEY `BookID` (`BookID`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`UserName`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `FK_UserID` FOREIGN KEY (`UserName`) REFERENCES `user` (`UserName`),
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`BookID`) REFERENCES `book` (`BookID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -110,7 +110,7 @@ class DataManager{
         $result=mysqli_query($this->conn,$GenerateID);
         $rowRes=mysqli_fetch_row($result);
         $orderID=$rowRes[0]+1;
-        $Query='insert into OrderBook values ("'.$orderID.'",'.$order->state.',"'.$order->bookID.'","'.$order->userID.'","'.$order->dateTime.'","'.$order->shippingAddress.'")';
+        $Query='insert into OrderBook values ("'.$orderID.'",'.$order->state.',"'.$order->bookID.'","'.$order->userName.'","'.$order->dateTime.'","'.$order->shippingAddress.'")';
         mysqli_query($this->conn,$Query);
     }
     public function GenerateBookID(){
@@ -125,7 +125,7 @@ class DataManager{
         $result=mysqli_query($this->conn,$GenerateID);
         $rowRes=mysqli_fetch_row($result);
         $transactionID=$rowRes[0]+1;
-        $Query='insert into OrderBook values ("'.$transactionID.'",'.$trans->state.',"'.$trans->bookID.'","'.$trans->userID.'","'.$trans->dateTime.'","'.$trans->shippingAddress.'")';
+        $Query='insert into OrderBook values ("'.$transactionID.'",'.$trans->state.',"'.$trans->bookID.'","'.$trans->userName.'","'.$trans->dateTime.'","'.$trans->shippingAddress.'")';
         mysqli_query($this->conn,$Query);
     }
 }

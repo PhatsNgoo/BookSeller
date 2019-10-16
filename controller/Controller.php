@@ -99,6 +99,11 @@ class Controller{
             $giftCode=new GiftCode(0,0);
             $giftCode->VerifyCode($code,1);
         }
+        //Add new transaction
+        if (true){
+//            $transaction=new Transaction();
+//            $transaction->AddNewTransaction();
+        }
     }
 }
 ?>

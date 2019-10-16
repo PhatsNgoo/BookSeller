@@ -2,15 +2,15 @@
 require_once('controller/DataManager.php');
 class Order{
     public $orderID;
-    public $userID;
+    public $userName;
     public $bookID;
     public $state;
     public $dateTime;
     public $shippingAddress;
     private $dataMng;
-    public function __construct($userID,$bookID,$state,$dateTime,$shippingAddress)
+    public function __construct($userName,$bookID,$state,$dateTime,$shippingAddress)
     {
-        $this->userID=$userID;
+        $this->userName=$userName;
         $this->bookID=$bookID;
         $this->state=$state;
         $this->dateTime=$dateTime;
