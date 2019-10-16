@@ -9,13 +9,6 @@ $controller=new Controller();
 $controller->run();
 
 ?>
-<FORM method="post">
-    <input type="textbox" name="UserName" placeholder="UserName">
-    <input type="textbox" name="Password" placeholder="Password">
-
-    <input type="submit" name="LogIn" value="Login">
-</FORM>
-<br>
 <FORM method="post" action="index.php">
     <input type="textbox" name="UserNameSignIn" placeholder="UserName">
     <input type="textbox" name="NewPassword" placeholder="Password">
