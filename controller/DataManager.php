@@ -120,6 +120,11 @@ class DataManager{
         $bookID=$rowRes[0]+1;
         return $bookID;
     }
+    public function SelectBook($bookID){
+        $Query='select * from book where BookID="'.$bookID.'"';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
+    }
     public function NewTransaction(Transaction $trans){
         $GenerateID='select count(*) from transaction';
         $result=mysqli_query($this->conn,$GenerateID);

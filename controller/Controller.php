@@ -78,14 +78,6 @@ class Controller{
                 echo 'Failed to submit new book';
             }
         }
-        //Get all books function
-        if (isset($_POST['GetAllBook'])){
-            $bookList=$this->dataMng->GetAllBooks();
-            while($row = mysqli_fetch_assoc($bookList)) {
-                echo 'Book name :'.$row['Title'].'-Author : '.$row['Author'].'-Price : '.$row['Price'].'-Category : '.$row['Category'].'<br>';
-                echo '<img width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$row['BookID'].'.jpg"> <br>';
-            }
-        }
         //Add new gift code function
         if (isset($_POST['SubmitNewCode'])){
             $code=$_POST['NewGiftCode'];
@@ -108,6 +100,12 @@ class Controller{
             echo $date;
             $transaction=new Transaction($userName,$bookID,1,$date,$shippingAddress);
             $transaction->AddNewTransaction();
+        }
+        //Get all books function
+        $bookList=$this->dataMng->GetAllBooks();
+        while($row = mysqli_fetch_assoc($bookList)) {
+            echo 'Book name :'.$row['Title'].'-Author : '.$row['Author'].'-Price : '.$row['Price'].'-Category : '.$row['Category'].'<br>';
+            echo '<img width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$row['BookID'].'.jpg"> <br>';
         }
     }
 }
