@@ -3,7 +3,7 @@ require('../Layout/User_Layout_Header.php');
 ?>
 
 <!--Add book form-->
-<FORM method="post" enctype="multipart/form-data">
+<FORM action="../index.php" method="post" enctype="multipart/form-data">
     <input type="file" name="BookImage" value="BookImage">
     <br>
     <input type="textbox" name="BookName" placeholder="Book Name">
