@@ -1,5 +1,5 @@
 <?php
-require_once('controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'controller/DataManager.php');
 class GiftCode{
 	public $code;
 	public $value;

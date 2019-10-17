@@ -1,10 +1,10 @@
 <?php
-require_once('controller/DataManager.php');
-require_once('model/Order.php');
-require_once('model/Transaction.php');
-require_once('model/User.php');
-require_once('model/Book.php');
-require_once('model/GiftCode.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Order.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Transaction.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/User.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Book.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/GiftCode.php');
 class Controller{
     public $dataMng;
     public function __construct()
@@ -105,7 +105,7 @@ class Controller{
         $bookList=$this->dataMng->GetAllBooks();
         while($row = mysqli_fetch_assoc($bookList)) {
             echo 'Book name :'.$row['Title'].'-Author : '.$row['Author'].'-Price : '.$row['Price'].'-Category : '.$row['Category'].'<br>';
-            echo '<img width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$row['BookID'].'.jpg"> <br>';
+            echo '<a href="./view/ViewBook.php/?f=View&id='.$row['BookID'].'"> <img onc width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$row['BookID'].'.jpg"><a> <br>';
         }
     }
 }

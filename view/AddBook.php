@@ -1,5 +1,5 @@
 <?php
-require('../Layout/User_Layout_Header.php');
+require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Header.php');
 ?>
 
 <!--Add book form-->
@@ -19,5 +19,5 @@ require('../Layout/User_Layout_Header.php');
     <input type="submit" name="NewBook" value="NewBook">
 </FORM>
 <?php
-require('../Layout/User_Layout_Footer.php');
+require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Footer.php');
 ?>

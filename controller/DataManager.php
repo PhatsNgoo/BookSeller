@@ -1,10 +1,10 @@
 <?php
-require_once ('Config.php');
-require_once ('model/Order.php');
-require_once ('model/Transaction.php');
-require_once ('model/User.php');
-require_once ('model/Book.php');
-require_once ('model/GiftCode.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'Config.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Order.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Transaction.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/User.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Book.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/GiftCode.php');
 class DataManager{
     public $conn;
     public function __construct()
