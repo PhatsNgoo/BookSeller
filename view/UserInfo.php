@@ -24,7 +24,8 @@ if (isset($_GET['userid'])){
     echo '
         <a>'.$userInfo->user['UserName'].'</a><br>
         <a>'.$userInfo->user['Email'].'</a><br>
-        <a>'.$userInfo->user['Balance'].'</a><br>';
+        <a>'.$userInfo->user['Balance'].'</a><br>
+        <a>'.$userInfo->user['UserRole'].'</a><br>';
 ?>
 </body>
 <?php

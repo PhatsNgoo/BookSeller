@@ -4,7 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Header.php
 ?>
 
 <!--Add book form-->
-<FORM action="../index.php" method="post" enctype="multipart/form-data">
+<FORM action="http://localhost/BookSeller/index.php" method="post" enctype="multipart/form-data">
     <input type="file" name="BookImage" value="BookImage">
     <br>
     <input type="textbox" name="BookName" placeholder="Book Name">
