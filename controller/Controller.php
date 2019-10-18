@@ -5,7 +5,6 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Transaction.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/User.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Book.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/GiftCode.php');
-session_start();
 class Controller{
     public $dataMng;
     public function __construct()

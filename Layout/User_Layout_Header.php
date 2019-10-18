@@ -1,5 +1,4 @@
 <?php
-    //session_start();
 ?>
 <html>
 <header>
@@ -11,13 +10,10 @@
     <?php
     if (isset($_SESSION['User'])!='')
     {
-        echo 'User is logged in';
-        echo $_SESSION['User']==''?true:false;
-        echo '<button>User Info</button>';
         echo '<FORM method="post" id="form-login">
             <input  type="submit" name="LogOut" value="LogOut">
         </FORM>';
-        echo '<a href="http://localhost/BookSeller/index.php" id="userName">'.$_SESSION['User'].'</a>';
+        echo '<a href="http://localhost/BookSeller/view/UserInfo.php/?userid='.$_SESSION['User'].'" id="userName">'.$_SESSION['User'].'</a>';
     }
     else
     {

@@ -5,6 +5,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Transaction.php');
 require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/User.php');
 require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Book.php');
 require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/GiftCode.php');
+session_start();
 class DataManager{
     public $conn;
     public function __construct()
@@ -50,6 +51,11 @@ class DataManager{
 	                    "'.$newUser->userName.'","'.$userID.'","'.$newUser->password.'","'.$newUser->email.'",'.$newUser->balance.'
                     )';
         mysqli_query($this->conn,$Query);
+    }
+    public function GetUserInfo($userName){
+        $Query='select * from user where UserName="'.$userName.'"';
+        $result=mysqli_fetch_assoc(mysqli_query($this->conn,$Query));
+        return $result;
     }
     public function NewBooks(Book $newBook){
         $GenerateBID='select count(*) from book';
