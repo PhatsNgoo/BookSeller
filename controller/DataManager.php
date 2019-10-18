@@ -19,7 +19,6 @@ class DataManager{
         }
         else
         {
-            echo ("Connect successfuly <br>");
         }
     }
 
@@ -27,16 +26,18 @@ class DataManager{
         $Query='select Password from user where (UserName="'.$userName.'")';
         $result=mysqli_query($this->conn,$Query);
         $rowRes=mysqli_fetch_row($result);
-        if($password==$rowRes[0])
+        if($password==$rowRes[0] && $userName!='')
         {
-            echo 'login successful';
+            $_SESSION['User']=$userName;
             return true;
         }
         else
         {
-            echo 'login fail';
             return false;
         }
+    }
+    public function LogOut(){
+        session_unset();
     }
     public function NewUser(User $newUser){
         $GenerateUID='select count(*) from user';

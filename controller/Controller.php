@@ -5,6 +5,7 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Transaction.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/User.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Book.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/GiftCode.php');
+session_start();
 class Controller{
     public $dataMng;
     public function __construct()
@@ -30,6 +31,10 @@ class Controller{
             $userName=$_POST['UserName'];
             $password=$_POST['Password'];
             $this->dataMng->Login($userName,$password);
+        }
+        //LogOut
+        if (isset($_POST['LogOut'])){
+            $this->dataMng->LogOut();
         }
         //Add book function
         if (isset($_POST['NewBook'])) {
@@ -101,6 +106,8 @@ class Controller{
             $transaction=new Transaction($userName,$bookID,1,$date,$shippingAddress);
             $transaction->AddNewTransaction();
         }
+
+        require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'Layout/User_Layout_Header.php');
         //Get all books function
         $bookList=$this->dataMng->GetAllBooks();
         while($row = mysqli_fetch_assoc($bookList)) {
