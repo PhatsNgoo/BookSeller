@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2019 at 04:36 PM
+-- Generation Time: Oct 19, 2019 at 04:39 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -47,7 +47,10 @@ INSERT INTO `book` (`BookID`, `Title`, `Price`, `Description`, `Author`, `Catego
 ('3', 'The third book', 8.99, 'This is third book in store', 'David James', 'Drama'),
 ('4', 'Fourth Book', 8.99, 'Too lazy for write description', 'Vincinus', 'Science'),
 ('5', 'Fifth Book', 7.99, 'Lazzyyyyy', 'Vinnn', 'Story'),
-('6', 'Sixth Book', 7.99, 'Lazzy', 'Ahnna', 'English');
+('6', 'Sixth Book', 7.99, 'Lazzy', 'Ahnna', 'English'),
+('7', 'Seventh Book', 8.99, 'This is a horror book', 'King John', 'Comedy'),
+('8', 'Eighth book', 99.99, 'This is eighth fucking book', 'Johnnnn', 'Drama'),
+('9', 'Nineth Book', 9.99, 'Fuck u description', 'Vinnn', 'Science');
 
 -- --------------------------------------------------------
 
@@ -66,6 +69,7 @@ CREATE TABLE `giftcode` (
 --
 
 INSERT INTO `giftcode` (`Code`, `Value`, `Useable`) VALUES
+('Ifdi09teh', 100, 0),
 ('S3phjr0th', 15, 1),
 ('Uzur3u2w', 10, 1);
 
@@ -84,6 +88,14 @@ CREATE TABLE `transaction` (
   `DateTime` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`TransactionID`, `State`, `BookID`, `UserName`, `ShippingAddress`, `DateTime`) VALUES
+('1', 1, '2', 'phatsngoo', 'To Huu Street, Ha Dong, room 5-08 CT2 Van Khe Urban', '10/16/2019'),
+('2', 1, '2', 'phatsngoo', 'To Huu Street, Ha Dong, room 5-08 CT2 Van Khe Urban', '10/16/2019');
+
 -- --------------------------------------------------------
 
 --
@@ -95,18 +107,20 @@ CREATE TABLE `user` (
   `UserID` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `Password` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `Email` varchar(25) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `Balance` float NOT NULL
+  `Balance` float NOT NULL,
+  `UserRole` varchar(8) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT 'User'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserName`, `UserID`, `Password`, `Email`, `Balance`) VALUES
-('fourhtacc', '3', 'aacc1234', 'kelldjn@gmail.com', 0),
-('kelvjn', '4', 'iow8ehw8', 'kelvingH@gmail.com', 0),
-('phatsngoo', '1', 'Uzur3u2w', 'phatsngoo2702@gmail.com', 10),
-('vicinus', '2', 'iow8ehw8', 'vinnnvvv@gmail.com', 9);
+INSERT INTO `user` (`UserName`, `UserID`, `Password`, `Email`, `Balance`, `UserRole`) VALUES
+('fifthacc', '5', 'iow8ehw8', 'gruuhhh@gmail.com', 0, 'User'),
+('fourhtacc', '3', 'aacc1234', 'kelldjn@gmail.com', 0, 'User'),
+('kelvjn', '4', 'iow8ehw8', 'kelvingH@gmail.com', 0, 'User'),
+('phatsngoo', '1', 'Uzur3u2w', 'phatsngoo2702@gmail.com', 110, 'Admin'),
+('vicinus', '2', 'iow8ehw8', 'vinnnvvv@gmail.com', 209, 'User');
 
 --
 -- Indexes for dumped tables
