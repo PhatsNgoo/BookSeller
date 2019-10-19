@@ -1,4 +1,18 @@
 <?php
+
+require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'controller/DataManager.php');
+
+$dataMng=new DataManager();
+//Login function
+if (isset($_POST['LogIn'])){
+    $userName=$_POST['UserName'];
+    $password=$_POST['Password'];
+    $dataMng->Login($userName,$password);
+}
+//LogOut
+if (isset($_POST['LogOut'])){
+    $dataMng->LogOut();
+}
 ?>
 <html>
 <header>
