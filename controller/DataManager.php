@@ -93,6 +93,8 @@ class DataManager{
         $row=mysqli_fetch_assoc($result);
         if ($row['Useable']==true || $row['Useable']=='true'|| $row['Useable']=='1'|| $row['Useable']==1)
         {
+            $Query='update giftcode set Useable="0" where Code="'.$code.'"';
+            mysqli_query($this->conn,$Query);
             return $row['Value'];
         }
         else

@@ -25,11 +25,15 @@ if (isset($_POST['LogOut'])){
     {
         if ($dataMng->GetUserInfo($_SESSION['User'])['UserRole']=='Admin') {
             echo '<button onclick="window.location.href=\'http://localhost/BookSeller/view/AddBook.php\'">Add book</button>';
+            echo '<button onclick="window.location.href=\'http://localhost/BookSeller/view/SubmitNewCode.php\'">New Gift Code</button>';
+        }
+        else{
+            echo '<button onclick="window.location.href=\'http://localhost/BookSeller/view/SubmitGift.php\'">Submit Gift</button>';
         }
         echo '<FORM action="http://localhost/BookSeller/index.php" method="post" id="form-login">
             <input type="submit" name="LogOut" value="LogOut">
         </FORM>';
-        echo '<a href="http://localhost/BookSeller/view/UserInfo.php/?userid='.$_SESSION['User'].'" id="userName">'.$_SESSION['User'].'</a>';
+        echo '<a href="http://localhost/BookSeller/view/UserInfo.php/?userid='.$_SESSION['User'].'">'.$_SESSION['User'].'</a>';
     }
     else
     {
