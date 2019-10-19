@@ -6,6 +6,7 @@ class User{
 	public $password;
 	public $email;
 	public $balance;
+	public $userRole;
     private $dataMng;
 	public function __construct($userName,$password,$email)
     {
@@ -13,6 +14,7 @@ class User{
         $this->password=$password;
         $this->email=$email;
         $this->balance=0.0;
+        $this->userRole='User';
     }
     public function SignIn(){
         $this->dataMng=new DataManager();

@@ -37,6 +37,7 @@ if (isset($_POST['LogOut'])){
             <input type="textbox" name="Password" placeholder="Password">
             <input type="submit" name="LogIn" value="Login">
         </FORM>';
+        echo '<button onclick="window.location.href=\'http://localhost/BookSeller/view/SignIn.php\'">Sign in</button>';
     }
     ?>
 </header>

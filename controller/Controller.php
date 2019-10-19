@@ -17,14 +17,6 @@ class Controller{
 //        $login=isset($_POST['LogIn'])?$_POST['LogIn']:'';
 //        $signin=isset($_POST['SignIn'])?$_POST['SignIn']:'';
 //        $submitBook=isset($_POST['NewBook'])?$_POST['NewBook']:'';
-        //Sign in function
-        if (isset($_POST['SignIn'])){
-            $userName=$_POST['UserNameSignIn'];
-            $password=$_POST['NewPassword'];
-            $email=$_POST['Email'];
-            $user=new User($userName,$password,$email);
-            $user->SignIn();
-        }
         //Add new gift code function
         if (isset($_POST['SubmitNewCode'])){
             $code=$_POST['NewGiftCode'];

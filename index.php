@@ -8,15 +8,6 @@ $controller=new Controller();
 $controller->run();
 
 ?>
-<!--Sign in form-->
-<!--<FORM method="post" action="index.php">-->
-<!--    <input type="textbox" name="UserNameSignIn" placeholder="UserName">-->
-<!--    <input type="textbox" name="NewPassword" placeholder="Password">-->
-<!--    <input type="textbox" name="Email" placeholder="Email">-->
-<!---->
-<!--    <input type="submit" name="SignIn" value="SignIn">-->
-<!---->
-<!--</FORM>-->
 <!--Add book form-->
 <!--<FORM method="post" enctype="multipart/form-data">-->
 <!--    <input type="file" name="BookImage" value="BookImage">-->

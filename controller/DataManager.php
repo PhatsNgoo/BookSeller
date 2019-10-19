@@ -45,12 +45,10 @@ class DataManager{
         $result=mysqli_query($this->conn,$GenerateUID);
         $rowRes=mysqli_fetch_row($result);
         $userID=$rowRes[0]+1;
-        echo $rowRes[0];
-        echo $userID;
         $Query='INSERT INTO user VALUES(
-	                    "'.$newUser->userName.'","'.$userID.'","'.$newUser->password.'","'.$newUser->email.'",'.$newUser->balance.'
+	                    "'.$newUser->userName.'","'.$userID.'","'.$newUser->password.'","'.$newUser->email.'",'.$newUser->balance.',"'.$newUser->userRole.'"
                     )';
-        mysqli_query($this->conn,$Query);
+        $result=mysqli_query($this->conn,$Query);
     }
     public function GetUserInfo($userName){
         $Query='select * from user where UserName="'.$userName.'"';
