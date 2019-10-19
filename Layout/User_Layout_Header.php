@@ -20,10 +20,12 @@ if (isset($_POST['LogOut'])){
     <title>BookSeller</title>
     <button onclick="window.location.href='http://localhost/BookSeller/index.php'">Home</button>
     <button>Books</button>
-    <button onclick="window.location.href='http://localhost/BookSeller/view/AddBook.php'">Add book</button>
     <?php
     if (isset($_SESSION['User'])!='')
     {
+        if ($dataMng->GetUserInfo($_SESSION['User'])['UserRole']=='Admin') {
+            echo '<button onclick="window.location.href=\'http://localhost/BookSeller/view/AddBook.php\'">Add book</button>';
+        }
         echo '<FORM action="http://localhost/BookSeller/index.php" method="post" id="form-login">
             <input type="submit" name="LogOut" value="LogOut">
         </FORM>';
