@@ -1,10 +1,10 @@
 <?php
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'Config.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Order.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Transaction.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/User.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/Book.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'model/GiftCode.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'Config.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'model/Order.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'model/Transaction.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'model/User.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'model/Book.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'model/GiftCode.php');
 session_start();
 class DataManager{
     public $conn;

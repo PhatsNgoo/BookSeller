@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/controller/DataManager.php');
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Header.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/model/GiftCode.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/model/GiftCode.php');
 $dataMng=new DataManager();
 //Verify gift code function
 if (isset($_POST['SubmitCode'])){
@@ -21,5 +21,5 @@ if (isset($_POST['SubmitCode'])){
         </FORM>
     </body>
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Footer.php');
+require($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Footer.php');
 ?>

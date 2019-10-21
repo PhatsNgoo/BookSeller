@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/controller/DataManager.php');
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Header.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/model/Book.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/model/Book.php');
 class ViewBook{
     public $book;
     public $dataMng;
@@ -28,9 +28,9 @@ if(isset($_GET['f']))
     <?php
 
         echo 'Book name :'.$viewBook->book['Title'].'-Author : '.$viewBook->book['Author'].'-Price : '.$viewBook->book['Price'].'-Category : '.$viewBook->book['Category'].'<br>';
-        echo '<a> <img onc width="45px" height="45px" src="http://localhost/BookSeller/Assets/BooksImage/'.$viewBook->book['BookID'].'.jpg"><a> <br>';
+        echo '<a> <img onc width="45px" height="45px" src="http://www.bookseller.com/Assets/BooksImage/'.$viewBook->book['BookID'].'.jpg"><a> <br>';
     ?>
 </body>
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Footer.php');
+require($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Footer.php');
 ?>

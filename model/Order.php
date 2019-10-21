@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'controller/DataManager.php');
 class Order{
     public $orderID;
     public $userName;

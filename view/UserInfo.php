@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/controller/DataManager.php');
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Header.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/model/User.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
+require_once ($_SERVER["DOCUMENT_ROOT"].'/model/User.php');
 class UserInfo{
     public $user;
     public $dataMng;
@@ -29,5 +29,5 @@ if (isset($_GET['userid'])){
 ?>
 </body>
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Footer.php');
+require($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Footer.php');
 ?>

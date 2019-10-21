@@ -1,8 +1,8 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'Config.php');
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'controller/DataManager.php');
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'controller/Controller.php');
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'StringUtils.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'Config.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'controller/Controller.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'StringUtils.php');
 
 $controller=new Controller();
 $controller->run();
@@ -37,5 +37,5 @@ $controller->run();
 <!--    <input type="submit" name="NewTransaction" value="Order book">-->
 <!--</FORM>-->
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'Layout/User_Layout_Footer.php');
+require($_SERVER["DOCUMENT_ROOT"].'Layout/User_Layout_Footer.php');
 ?>

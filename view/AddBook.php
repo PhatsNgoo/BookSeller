@@ -1,6 +1,6 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/controller/DataManager.php');
-require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Header.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
 
 $dataMng=new DataManager();
 //Add book function
@@ -15,7 +15,7 @@ if (isset($_POST['NewBook'])) {
     $book=new Book($bookName,$price,$author,$bookDescription,$category,$bookID);
     $result=$book->AddNewBook();
     if ($result==true){
-        $targetDir=$_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'Assets/BooksImage/';
+        $targetDir=$_SERVER["DOCUMENT_ROOT"].'Assets/BooksImage/';
         $imageFileType = strtolower(pathinfo(basename($_FILES['BookImage']['name']),PATHINFO_EXTENSION));
         $targetFile = $targetDir .$bookID.'.'.$imageFileType;
         echo $targetFile;
@@ -69,5 +69,5 @@ if (isset($_POST['NewBook'])) {
     <input type="submit" name="NewBook" value="NewBook">
 </FORM>
 <?php
-require($_SERVER["DOCUMENT_ROOT"].'/BookSeller/'.'/Layout/User_Layout_Footer.php');
+require($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Footer.php');
 ?>
