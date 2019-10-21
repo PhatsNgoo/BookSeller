@@ -1,34 +1,16 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/BookController.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
 require_once ($_SERVER["DOCUMENT_ROOT"].'/model/Book.php');
-class ViewBook{
-    public $book;
-    public $dataMng;
-    public function __construct()
-    {
-    }
-
-    public function View($bookID){
-        $this->dataMng=new DataManager();
-        $result=$this->dataMng->SelectBook($bookID);
-        $this->book=mysqli_fetch_assoc($result);
-    }
-}
-$viewBook=new ViewBook();
-if(isset($_GET['f']))
-{
-    if ($_GET['f']=='View')
-    {
-        $viewBook->View($_GET['id']);
-    }
-}
+$bookController=new BookController();
+$bookController->Run();
 ?>
 <body>
     <?php
 
-        echo 'Book name :'.$viewBook->book['Title'].'-Author : '.$viewBook->book['Author'].'-Price : '.$viewBook->book['Price'].'-Category : '.$viewBook->book['Category'].'<br>';
-        echo '<a> <img onc width="45px" height="45px" src="http://www.bookseller.com/Assets/BooksImage/'.$viewBook->book['BookID'].'.jpg"><a> <br>';
+        echo 'Book name :'.$bookController->book['Title'].'-Author : '.$bookController->book['Author'].'-Price : '.$bookController->book['Price'].'-Category : '.$bookController->book['Category'].'<br>';
+        echo '<a> <img onc width="45px" height="45px" src="http://www.bookseller.com/Assets/BooksImage/'.$bookController->book['BookID'].'.jpg"><a> <br>';
     ?>
 </body>
 <?php

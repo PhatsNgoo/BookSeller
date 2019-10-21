@@ -1,14 +1,9 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/GiftCodeController.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/model/GiftCode.php');
-//Add new gift code function
-if (isset($_POST['SubmitNewCode'])){
-    $code=$_POST['NewGiftCode'];
-    $value=$_POST['GiftCodeValue'];
-    $giftCode=new GiftCode($code,$value);
-    $giftCode->AddNewCode();
-}
+$gcController=new GiftCodeController();
+$gcController->Run();
 ?>
     <body>
 

@@ -1,14 +1,9 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/GiftCodeController.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
-require_once ($_SERVER["DOCUMENT_ROOT"].'/model/GiftCode.php');
-$dataMng=new DataManager();
-//Verify gift code function
-if (isset($_POST['SubmitCode'])){
-    $code=$_POST['GiftCode'];
-    $giftCode=new GiftCode(0,0);
-    $giftCode->VerifyCode($code,$dataMng->GetUserInfo($_SESSION['User'])['UserID']);
-}
+$gcController=new GiftCodeController();
+$gcController->Run();
 ?>
     <body>
 

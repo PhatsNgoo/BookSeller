@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `book` (
-  `BookID` varchar(13) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `BookID` int COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `Title` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `Price` float NOT NULL,
   `Description` varchar(1000) COLLATE utf8mb4_vietnamese_ci NOT NULL,
@@ -82,7 +82,7 @@ INSERT INTO `giftcode` (`Code`, `Value`, `Useable`) VALUES
 CREATE TABLE `transaction` (
   `TransactionID` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `State` int(11) NOT NULL,
-  `BookID` varchar(13) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `BookID` int COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `UserName` varchar(15) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `ShippingAddress` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `DateTime` varchar(15) COLLATE utf8mb4_vietnamese_ci NOT NULL

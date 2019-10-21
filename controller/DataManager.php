@@ -61,7 +61,7 @@ class DataManager{
         $rowRes=mysqli_fetch_row($result);
         $bookID=$rowRes[0]+1;
         if ($bookID!==null && $bookID!='') {
-            $Query = 'insert into book values("' . $bookID . '","' . $newBook->title . '",'. $newBook->price .',"' . $newBook->description . '","' . $newBook->author . '","'.$newBook->category.'")';
+            $Query = 'insert into book values(' . $bookID . ',"' . $newBook->title . '",'. $newBook->price .',"' . $newBook->description . '","' . $newBook->author . '","'.$newBook->category.'")';
             mysqli_query($this->conn, $Query);
             return true;
         }

@@ -1,15 +1,10 @@
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"].'/controller/DataManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/controller/UserController.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
 require_once ($_SERVER["DOCUMENT_ROOT"].'/model/User.php');
-//Sign in function
-if (isset($_POST['SignIn'])){
-    $userName=$_POST['UserNameSignIn'];
-    $password=$_POST['NewPassword'];
-    $email=$_POST['Email'];
-    $user=new User($userName,$password,$email);
-    $user->SignIn();
-}
+$user=new UserController();
+$user->Run();
 ?>
     <body>
     <!--Sign in form-->

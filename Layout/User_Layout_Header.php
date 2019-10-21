@@ -19,7 +19,6 @@ if (isset($_POST['LogOut'])){
     <link rel="stylesheet" href="http://www.bookseller.com/Assets/css/style.css">
     <title>BookSeller</title>
     <button onclick="window.location.href='http://www.bookseller.com/index.php'">Home</button>
-    <button>Books</button>
     <?php
     if (isset($_SESSION['User'])!='')
     {
