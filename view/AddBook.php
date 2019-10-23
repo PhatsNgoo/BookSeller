@@ -8,20 +8,32 @@ $bookController->Run();
 ?>
 
 <!--Add book form-->
-<FORM method="post" enctype="multipart/form-data">
-    <input type="file" name="BookImage" value="BookImage">
+<FORM method="post" style="margin: auto; width: 900px;" enctype="multipart/form-data">
+    <p class="centeraddbook"><label>Book Image: </label>
+    <input class="right" type="file" name="BookImage" value="BookImage">
     <br>
-    <input type="textbox" name="BookName" placeholder="Book Name">
+    </p>
+    <p class="centeraddbook"><label>Book Name: </label>
+    <input class="right" type="textbox" name="BookName" placeholder="Book Name">
     <br>
-    <input type="textbox" name="BookCategory" placeholder="Category">
+    </p>
+    <p class="centeraddbook"><label>Category: </label>
+    <input class="right" type="textbox" name="BookCategory" placeholder="Category">
     <br>
-    <input type="textbox" name="BookDescription" placeholder="Book Description">
+    </p>
+    <p class="centeraddbook"><label>Description: </label>
+    <input class="right" type="textbox" name="BookDescription" placeholder="Book Description">
     <br>
-    <input type="number" step="0.01" name="BookPrice" placeholder="Price">
+    </p>
+    <p class="centeraddbook"><label>Price: </label>
+    <input class="right" type="number" step="0.01" name="BookPrice" placeholder="Price">
     <br>
-    <input type="textbox" name="Author" placeholder="Author">
+    </p>
+    <p class="centeraddbook"><label>Author: </label>
+    <input class="right" type="textbox" name="Author" placeholder="Author">
     <br>
-    <input type="submit" name="NewBook" value="NewBook">
+    </p>
+    <input class="submitcenter" type="submit" name="NewBook" value="NewBook">
 </FORM>
 <?php
 require($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Footer.php');

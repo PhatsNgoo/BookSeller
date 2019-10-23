@@ -10,8 +10,20 @@ div a {
      border-bottom-style:hidden;
      font-size:14px;
 }
+
+form{
+    margin: auto;
+    background: #1c7430;
+}
 div .menu:hover{
     border-bottom-style:dotted;
+}
+p{
+    background: crimson;
+}
+label{
+    background: blue;
+    width: 100px;
 }
 .menu{
     color:#FFFFFF; font-weight:600; margin:3px; padding:3px;
@@ -27,11 +39,16 @@ div .menu:hover{
     width: 1200px;
 }
 .right{
-    margin-top: 2px;
+    margin-top: 0px;
     float: right;
 }
 .center{
     width: 250px;
+    height: 30px;
+    margin: 0 auto;
+}
+.centeraddbook{
+    width: 350px;
     height: 30px;
     margin: 0 auto;
 }

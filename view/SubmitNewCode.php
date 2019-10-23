@@ -8,12 +8,16 @@ $gcController->Run();
     <body>
 
         <!--New Gift code Form-->
-        <FORM method="post">
-            <input type="textbox" name="NewGiftCode" placeholder="New Gift Code">
+        <FORM method="post" style="margin: auto; width: 700px;">
+            <p class="center"><label>New Code: </label>
+            <input class="right" type="textbox" name="NewGiftCode" placeholder="New Code">
             <br>
-            <input type="number" step="0.01" name="GiftCodeValue" placeholder="Value">
+            </p>
+            <p class="center"><label>Value: </label>
+            <input class="right" type="number" step="0.01" name="GiftCodeValue" placeholder="Value">
             <br>
-            <input type="submit" name="SubmitNewCode" value="Submit">
+            </p>
+            <input class="submitcenter" type="submit" name="SubmitNewCode" value="Submit">
         </FORM>
     </body>
 <?php

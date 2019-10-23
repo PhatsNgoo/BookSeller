@@ -7,17 +7,9 @@ $user=new UserController();
 $user->Run();
 ?>
     <style>
-        label{
-            background: blue;
-            width: 100px;
-        }
         p{
             background: blue;
             margin-top: 10px;
-        }
-        form{
-            margin: auto;
-            background: #1c7430;
         }
     </style>
     <body>

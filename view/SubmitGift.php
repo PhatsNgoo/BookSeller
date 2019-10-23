@@ -9,10 +9,12 @@ $gcController->Run();
 
 
         <!--Submit gift code form-->
-        <FORM method="post">
-            <input type="textbox" name="GiftCode" placeholder="Enter Code Here">
+        <FORM method="post" style="margin: auto; width: 700px;">
+            <p class="center"><label>Code: </label>
+            <input class="right" type="textbox" name="GiftCode" placeholder="Enter Code Here">
             <br>
-            <input type="submit" name="SubmitCode" value="Submit">
+            </p>
+            <input class="submitcenter" type="submit" name="SubmitCode" value="Submit">
         </FORM>
     </body>
 <?php
