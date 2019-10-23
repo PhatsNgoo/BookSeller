@@ -16,34 +16,36 @@ if (isset($_POST['LogOut'])){
 ?>
 <html>
 <header>
+    <div style="margin:auto; padding:3px; width:1200px; display:block; background-color:#FF0000;  ">
     <link rel="stylesheet" href="http://www.bookseller.com/Assets/css/style.css">
     <title>BookSeller</title>
-    <button onclick="window.location.href='http://www.bookseller.com/index.php'">Home</button>
+    <button class="menu" onclick="window.location.href='http://www.bookseller.com/index.php'">Home</button>
     <?php
     if (isset($_SESSION['User'])!='')
     {
         if ($dataMng->GetUserInfo($_SESSION['User'])['UserRole']=='Admin') {
-            echo '<button onclick="window.location.href=\'http://www.bookseller.com/view/AddBook.php\'">Add book</button>';
-            echo '<button onclick="window.location.href=\'http://www.bookseller.com/view/SubmitNewCode.php\'">New Gift Code</button>';
+            echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/AddBook.php\'">Add book</button>';
+            echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/SubmitNewCode.php\'">New Gift Code</button>';
         }
         else{
-            echo '<button onclick="window.location.href=\'http://www.bookseller.com/view/SubmitGift.php\'">Submit Gift</button>';
+            echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/SubmitGift.php\'">Submit Gift</button>';
         }
         echo '<FORM action="http://www.bookseller.com/index.php" method="post" id="form-login">
-            <input type="submit" name="LogOut" value="LogOut">
+            <input class="menu" type="submit" name="LogOut" value="LogOut">
         </FORM>';
-        echo '<a href="http://www.bookseller.com/view/UserInfo.php/?userid='.$_SESSION['User'].'">'.$_SESSION['User'].'</a>';
+        echo '<a class="menu" href="http://www.bookseller.com/view/UserInfo.php/?userid='.$_SESSION['User'].'">'.$_SESSION['User'].'</a>';
     }
     else
     {
         echo '
         <FORM method="post" id="form-login">
-            <input type="textbox" name="UserName" placeholder="UserName">
-            <input type="textbox" name="Password" placeholder="Password">
-            <input type="submit" name="LogIn" value="Login">
+            <input class="menu" type="textbox" name="UserName" placeholder="UserName">
+            <input class="menu" type="textbox" name="Password" placeholder="Password">
+            <input class="menu" type="submit" name="LogIn" value="Login">
         </FORM>';
-        echo '<button onclick="window.location.href=\'http://www.bookseller.com/view/SignIn.php\'">Sign in</button>';
+        echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/SignIn.php\'">Sign in</button>';
     }
     ?>
+    </div>
 </header>
 </html>

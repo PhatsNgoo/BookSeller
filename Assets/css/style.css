@@ -3,3 +3,16 @@
     margin-left:50%;
     padding:0px;
 }
+div a {
+     text-decoration:none;
+     color:#0099FF;
+     border-bottom-color:#666666;
+     border-bottom-style:hidden;
+     font-size:14px;
+}
+div .menu:hover{
+    border-bottom-style:dotted;
+}
+.menu{
+    color:#FFFFFF; font-weight:600; margin:3px; padding:3px;
+}
