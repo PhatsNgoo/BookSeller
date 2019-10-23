@@ -15,9 +15,9 @@ if (isset($_POST['LogOut'])){
 }
 ?>
 <html>
+<link rel="stylesheet" href="http://www.bookseller.com/Assets/css/style.css" type="text/css" media="screen">
 <header>
     <div style="margin:auto; padding:3px; width:1200px; display:block; background-color:#FF0000;  ">
-    <link rel="stylesheet" href="http://www.bookseller.com/Assets/css/style.css">
     <title>BookSeller</title>
     <button class="menu" onclick="window.location.href='http://www.bookseller.com/index.php'">Home</button>
     <?php

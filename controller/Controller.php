@@ -31,7 +31,8 @@ class Controller{
         require_once($_SERVER["DOCUMENT_ROOT"].'Layout/User_Layout_Header.php');
         //Get all books function
         $bookList=$this->dataMng->GetAllBooks();
-        echo '<table width="700" border="1" height="" cellspacing="2" cellspacing="2" class="text-center table" >';
+        echo '<div class="booktable">';
+        echo '<table width="700" border="1" height="" cellspacing="2" cellspacing="2" class="tableCenter" >';
         echo '<tr>';
         echo '<th scope="col">Book name</th>';
         echo '<th scope="col">Author</th>';
@@ -45,10 +46,11 @@ class Controller{
             echo '<th scope="col">'.$row['Author'].'</th>';
             echo '<th scope="col">'.$row['Category'].'</th>';
             echo '<th scope="col">'.$row['Price'].'</th>';
-            echo '<th><a href="http://www.bookseller.com/view/ViewBook.php/?f=View&id='.$row['BookID'].'"> <img onc width="45px" height="45px" src="http://www.bookseller.com/Assets/BooksImage/'.$row['BookID'].'.jpg"><a></th>';
+            echo '<th ><a href="http://www.bookseller.com/view/ViewBook.php/?f=View&id='.$row['BookID'].'"> <img onc width="90px" height="90px" src="http://www.bookseller.com/Assets/BooksImage/'.$row['BookID'].'.jpg"><a></th>';
             echo '</tr>';
         }
         echo '</table>';
+        echo '</div>';
     }
 }
 ?>

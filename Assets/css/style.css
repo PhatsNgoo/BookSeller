@@ -16,3 +16,31 @@ div .menu:hover{
 .menu{
     color:#FFFFFF; font-weight:600; margin:3px; padding:3px;
 }
+#signin{
+    background: #FF0000;
+    height: 30px;
+    width: 150px;
+}
+.booktable{
+    background: #0099FF;
+    margin: auto;
+    width: 1200px;
+}
+.right{
+    margin-top: 2px;
+    float: right;
+}
+.center{
+    width: 250px;
+    height: 30px;
+    margin: 0 auto;
+}
+.tableCenter{
+    width: 750px;
+    margin: 0 auto;
+}
+.submitcenter{
+    width: 70px;
+    height: 30px;
+    margin-left: 45%;
+}

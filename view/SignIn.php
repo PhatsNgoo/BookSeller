@@ -7,27 +7,29 @@ $user=new UserController();
 $user->Run();
 ?>
     <style>
-        input{
-            margin-right: 0;
-            height: 30px;
-            width: 150px;
+        label{
+            background: blue;
+            width: 100px;
         }
         p{
-            margin: auto;
+            background: blue;
             margin-top: 10px;
-            width: 500px;
         }
         form{
+            margin: auto;
             background: #1c7430;
         }
     </style>
     <body>
     <!--Sign in form-->
-        <form method="post" style="margin: auto; width: 600px;">
-            <p><label>User Name: </label><input style="align-content: center" type="textbox" name="UserNameSignIn" placeholder="UserName"><br></p>
-            <p><label>Password: </label><input type="textbox" name="NewPassword" placeholder="Password"><br></p>
-            <p><label>Email: </label><input type="textbox" name="Email" placeholder="Email"><br></p>
-            <p><input type="submit" name="SignIn" value="SignIn"></p>
+        <form method="post" style="margin: auto; width: 800px;">
+            <p class="center"><label>User Name: </label>
+            <input class="right" type="textbox" name="UserNameSignIn" placeholder="UserName"><br></p>
+            <p class="center"><label>Password: </label>
+            <input class="right" type="textbox" name="NewPassword" placeholder="Password"><br></p>
+            <p class="center"><label>Email: </label>
+            <input class="right" type="textbox" name="Email" placeholder="Email"><br></p>
+            <input class="submitcenter" type="submit" name="SignIn" value="SignIn">
         </form>
     </body>
 <?php
