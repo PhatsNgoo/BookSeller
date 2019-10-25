@@ -7,18 +7,28 @@ class Transaction{
 	public $userName;
     public $dateTime;
     public $shippingAddress;
+    public $phone;
 	private $dataMng;
-    public function __construct($userName,$bookID,$state,$dateTime,$shippingAddress)
+    public function __construct($userName,$bookID,$state,$dateTime,$shippingAddress,$phone)
     {
         $this->userName=$userName;
         $this->bookID=$bookID;
         $this->state=$state;
         $this->dateTime=$dateTime;
         $this->shippingAddress=$shippingAddress;
+        $this->phone=$phone;
     }
     public function AddNewTransaction(){
         $this->dataMng=new DataManager();
-        $this->dataMng->NewTransaction($this);
+        $result=$this->dataMng->NewTransaction($this);
+        if ($result)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 ?>
