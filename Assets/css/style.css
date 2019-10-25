@@ -52,12 +52,25 @@ label{
     height: 30px;
     margin: 0 auto;
 }
+.bookavatar{
+    float: left;
+    display: inline;
+    width: 256px;
+    height: 256px;
+    margin-left: 300px;
+}
+.bookinfo{
+    background: blue;
+    margin-left: 600px;
+    width: 600px;
+    height: 300px;
+}
 .tableCenter{
     width: 750px;
     margin: 0 auto;
 }
 .submitcenter{
-    width: 70px;
+    width: 90px;
     height: 30px;
     margin-left: 45%;
 }

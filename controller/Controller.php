@@ -29,6 +29,9 @@ class Controller{
         }
 
         require_once($_SERVER["DOCUMENT_ROOT"].'Layout/User_Layout_Header.php');
+        $this->ShowAllBooks();
+    }
+    public function ShowAllBooks(){
         //Get all books function
         $bookList=$this->dataMng->GetAllBooks();
         echo '<div class="booktable">';
