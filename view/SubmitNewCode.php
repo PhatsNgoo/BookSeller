@@ -4,11 +4,12 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/controller/GiftCodeController.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
 $gcController=new GiftCodeController();
 $gcController->Run();
-if ($gcController->result){
-    echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 36%">Add code sucessful</text></p>';
-}
-else{
-    echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 33%">Failed to add new code</text></p>';
+if (isset($_POST['SubmitNewCode'])) {
+    if ($gcController->result) {
+        echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 36%">Add code sucessful</text></p>';
+    } else {
+        echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 33%">Failed to add new code</text></p>';
+    }
 }
 ?>
     <body>
