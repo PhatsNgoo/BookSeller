@@ -4,6 +4,7 @@ require_once $_SERVER["DOCUMENT_ROOT"].'model/User.php';
 class UserController{
     public $userInfo;
     public $dataMng;
+    public $result;
     public function __construct(){
 
     }
@@ -18,7 +19,7 @@ class UserController{
             $password=$_POST['NewPassword'];
             $email=$_POST['Email'];
             $user=new User($userName,$password,$email);
-            $user->SignIn();
+            $this->result=$user->SignIn();
         }
     }
 }

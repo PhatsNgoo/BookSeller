@@ -16,10 +16,11 @@ class GiftCode{
         if ($result!=0)
         {
             $this->dataMng->AddGift($result,$userID);
+            return true;
         }
         else
         {
-            echo 'Giftcode is not valid or wrong pls use another code';
+            return false;
         }
     }
     public function AddNewCode(){

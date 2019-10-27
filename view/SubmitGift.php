@@ -4,6 +4,14 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/controller/GiftCodeController.php');
 require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
 $gcController=new GiftCodeController();
 $gcController->Run();
+
+if (isset($_POST['SubmitCode'])) {
+    if ($gcController->result) {
+        echo '<p class="centergc"><text style="margin-left: 35%;">Submit gift successful</text></p>';
+    } else {
+        echo '<p class="centergc"><text style="margin: 13%;">Giftcode is not valid or wrong pls use another code</text></p>';
+    }
+}
 ?>
     <body>
 

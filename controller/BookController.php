@@ -20,16 +20,21 @@ class BookController{
             $category=$_POST['BookCategory'];
             $bookDescription=$_POST['BookDescription'];
             $price=$_POST['BookPrice'];
-            echo $price;
             $author=$_POST['Author'];
             $bookID=$dataMng->GenerateBookID();
             $book=new Book($bookName,$price,$author,$bookDescription,$category,$bookID);
-            $result=$book->AddNewBook();
+
+            $check=file_exists($_FILES['BookImage']['tmp_name']);
+            if ($check!==false) {
+                $result = $book->AddNewBook();
+            }
+            else{
+                $result=false;
+            }
             if ($result==true){
                 $targetDir=$_SERVER["DOCUMENT_ROOT"].'Assets/BooksImage/';
                 $imageFileType = strtolower(pathinfo(basename($_FILES['BookImage']['name']),PATHINFO_EXTENSION));
                 $targetFile = $targetDir .$bookID.'.'.$imageFileType;
-                echo $targetFile;
                 $uploadState=1;
                 $check=getimagesize($_FILES['BookImage']['tmp_name']);
                 if ($check!==false)
@@ -54,11 +59,12 @@ class BookController{
                 if ($uploadState!==0)
                 {
                     move_uploaded_file($_FILES['BookImage']['tmp_name'],$targetFile);
+                    echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 36%">Add book sucessful</text></p>';
                 }
             }
             else
             {
-                echo 'Failed to submit new book';
+                echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 33%">Failed to submit new book</text></p>';
             }
         }
     }

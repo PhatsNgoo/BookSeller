@@ -18,7 +18,7 @@ class User{
     }
     public function SignIn(){
         $this->dataMng=new DataManager();
-        $this->dataMng->NewUser($this);
+        return $this->dataMng->NewUser($this);
     }
 }
 ?>

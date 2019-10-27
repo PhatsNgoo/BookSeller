@@ -5,6 +5,14 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/Layout/User_Layout_Header.php');
 require_once ($_SERVER["DOCUMENT_ROOT"].'/model/User.php');
 $user=new UserController();
 $user->Run();
+
+if (isset($_POST['SignIn'])) {
+    if ($user->result) {
+        header('Location: http://www.bookseller.com/index.php');
+    } else {
+        echo '<p style="width: 600px;margin: 0 auto;"><text style="margin-left: 25%">Information is not valid please re-submit form</text></p>';
+    }
+}
 ?>
     <style>
         p{

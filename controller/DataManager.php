@@ -49,6 +49,12 @@ class DataManager{
 	                    "'.$newUser->userName.'","'.$userID.'","'.$newUser->password.'","'.$newUser->email.'",'.$newUser->balance.',"'.$newUser->userRole.'"
                     )';
         $result=mysqli_query($this->conn,$Query);
+        if ($result){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     public function GetUserInfo($userName){
         $Query='select * from user where UserName="'.$userName.'"';
@@ -60,16 +66,9 @@ class DataManager{
         $result=mysqli_query($this->conn,$GenerateBID);
         $rowRes=mysqli_fetch_row($result);
         $bookID=$rowRes[0]+1;
-        if ($bookID!==null && $bookID!='') {
-            $Query = 'insert into book values(' . $bookID . ',"' . $newBook->title . '",'. $newBook->price .',"' . $newBook->description . '","' . $newBook->author . '","'.$newBook->category.'")';
-            mysqli_query($this->conn, $Query);
-            return true;
-        }
-        else
-        {
-            echo 'Book ID cannot be null or empty';
-            return false;
-        }
+        $Query = 'insert into book values(' . $bookID . ',"' . $newBook->title . '",'. $newBook->price .',"' . $newBook->description . '","' . $newBook->author . '","'.$newBook->category.'")';
+        $result=mysqli_query($this->conn, $Query);
+        return $result;
     }
     public function GetAllBooks(){
         $Query='select * from book';
@@ -138,7 +137,6 @@ class DataManager{
         $transactionID=$rowRes[0]+1;
         $Query='insert into transaction values ("'.$transactionID.'",'.$trans->state.',"'.$trans->bookID.'","'.$trans->userName.'","'.$trans->shippingAddress.'","'.$trans->dateTime.'","'.$trans->phone.'")';
         $result=mysqli_query($this->conn,$Query);
-        echo $Query;
         if ($result)
         {
             return true;

@@ -38,7 +38,7 @@ if (isset($_POST['LogOut'])){
     else
     {
         echo '
-        <FORM method="post" id="form-login">
+        <FORM method="post" id="form-login" action="http://www.bookseller.com/index.php">
             <input class="menu" type="textbox" name="UserName" placeholder="UserName">
             <input class="menu" type="textbox" name="Password" placeholder="Password">
             <input class="menu" type="submit" name="LogIn" value="Login">
