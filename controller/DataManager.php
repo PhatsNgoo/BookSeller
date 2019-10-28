@@ -80,6 +80,11 @@ class DataManager{
         $result=mysqli_query($this->conn,$Query);
         return $result;
     }
+    public function FilterBooksByAuthor($author){
+        $Query='select * from book where Author="'.$author.'"';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
+    }
     public function NewGiftCode(GiftCode $code){
         $Query='insert into giftcode values ("'.$code->code.'",'.$code->value.',true)';
         $result=mysqli_query($this->conn,$Query);

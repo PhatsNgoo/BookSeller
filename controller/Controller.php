@@ -23,6 +23,9 @@ class Controller{
         if(isset($_GET['category'])) {
             $this->ShowBooksByCategory($_GET['category']);
         }
+        elseif (isset($_GET['author'])){
+            $this->ShowBooksByAuthor($_GET['author']);
+        }
         else {
             $this->ShowAllBooks();
         }
@@ -30,30 +33,19 @@ class Controller{
     public function ShowAllBooks(){
         //Get all books function
         $bookList=$this->dataMng->GetAllBooks();
-        echo '<div class="booktable">';
-        echo '<table width="700" border="1" height="" cellspacing="2" cellspacing="2" class="tableCenter" >';
-        echo '<tr>';
-        echo '<th scope="col">Book name</th>';
-        echo '<th scope="col">Author</th>';
-        echo '<th scope="col">Category</th>';
-        echo '<th scope="col">Price</th>';
-        echo '<th scope="col">Image</th>';
-        echo '</tr>';
-        while($row = mysqli_fetch_assoc($bookList)) {
-            echo '<tr>';
-            echo '<th scope="col">'.$row['Title'].'</th>';
-            echo '<th scope="col">'.$row['Author'].'</th>';
-            echo '<th scope="col"><a href="http://www.bookseller.com/?category='.$row['Category'].'">'.$row['Category'].'</a></th>';
-            echo '<th scope="col">'.$row['Price'].'</th>';
-            echo '<th ><a href="http://www.bookseller.com/view/ViewBook.php/?f=View&id='.$row['BookID'].'"> <img onc width="90px" height="90px" src="http://www.bookseller.com/Assets/BooksImage/'.$row['BookID'].'.jpg"><a></th>';
-            echo '</tr>';
-        }
-        echo '</table>';
-        echo '</div>';
+        $this->ShowBooks($bookList);
     }
     public function ShowBooksByCategory($category){
         //Get all books function
         $bookList=$this->dataMng->FilterBooksByCategory($category);
+        $this->ShowBooks($bookList);
+    }
+    public function ShowBooksByAuthor($author){
+        //Get all books function
+        $bookList=$this->dataMng->FilterBooksByAuthor($author);
+        $this->ShowBooks($bookList);
+    }
+    function ShowBooks($bookList){
         echo '<div class="booktable">';
         echo '<table width="700" border="1" height="" cellspacing="2" cellspacing="2" class="tableCenter" >';
         echo '<tr>';
@@ -66,8 +58,8 @@ class Controller{
         while($row = mysqli_fetch_assoc($bookList)) {
             echo '<tr>';
             echo '<th scope="col">'.$row['Title'].'</th>';
-            echo '<th scope="col">'.$row['Author'].'</th>';
-            echo '<th scope="col">'.$row['Category'].'</th>';
+            echo '<th scope="col"><a href="http://www.bookseller.com/?author='.$row['Author'].'">'.$row['Author'].'</a></th>';
+            echo '<th scope="col"><a href="http://www.bookseller.com/?category='.$row['Category'].'">'.$row['Category'].'</a></th>';
             echo '<th scope="col">'.$row['Price'].'</th>';
             echo '<th ><a href="http://www.bookseller.com/view/ViewBook.php/?f=View&id='.$row['BookID'].'"> <img onc width="90px" height="90px" src="http://www.bookseller.com/Assets/BooksImage/'.$row['BookID'].'.jpg"><a></th>';
             echo '</tr>';
