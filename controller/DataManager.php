@@ -70,8 +70,23 @@ class DataManager{
         $result=mysqli_query($this->conn, $Query);
         return $result;
     }
+    public function GetBookName($bookID){
+        $Query='select Title from book where BookID="'.$bookID.'"';
+        $result=mysqli_query($this->conn,$Query);
+        return mysqli_fetch_row($result);
+    }
     public function GetAllBooks(){
         $Query='select * from book';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
+    }
+    public function FilterBooksByCategory($category){
+        $Query='select * from book where Category="'.$category.'"';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
+    }
+    public function FilterBooksByAuthor($author){
+        $Query='select * from book where Author="'.$author.'"';
         $result=mysqli_query($this->conn,$Query);
         return $result;
     }
@@ -145,6 +160,16 @@ class DataManager{
         {
             return false;
         }
+    }
+    public function GetAllOrders(){
+        $Query='select * from transaction';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
+    }
+    public function GetUserOrders($userID){
+        $Query='select * from transaction where UserName="'.$userID.'"';
+        $result=mysqli_query($this->conn,$Query);
+        return $result;
     }
 }
 ?>

@@ -16,7 +16,6 @@ if (isset($_POST['SignIn'])) {
 ?>
     <style>
         p{
-            background: blue;
             margin-top: 10px;
         }
     </style>

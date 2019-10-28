@@ -30,7 +30,8 @@ if (isset($_POST['LogOut'])){
         else{
             echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/SubmitGift.php\'">Submit Gift</button>';
         }
-        echo '<FORM action="http://www.bookseller.com/index.php" method="post" id="form-login">
+        echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/ViewOrder.php\'">View Orders</button>';
+        echo '<FORM class="header" action="http://www.bookseller.com/index.php" method="post" id="form-login">
             <input class="menu" type="submit" name="LogOut" value="LogOut">
         </FORM>';
         echo '<a class="menu" href="http://www.bookseller.com/view/UserInfo.php/?userid='.$_SESSION['User'].'">'.$_SESSION['User'].'</a>';
@@ -38,7 +39,7 @@ if (isset($_POST['LogOut'])){
     else
     {
         echo '
-        <FORM method="post" id="form-login" action="http://www.bookseller.com/index.php">
+        <FORM class="header" method="post" id="form-login" action="http://www.bookseller.com/index.php">
             <input class="menu" type="textbox" name="UserName" placeholder="UserName">
             <input class="menu" type="textbox" name="Password" placeholder="Password">
             <input class="menu" type="submit" name="LogIn" value="Login">

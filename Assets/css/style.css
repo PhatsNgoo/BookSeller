@@ -5,36 +5,36 @@
 }
 div a {
      text-decoration:none;
-     color:#0099FF;
-     border-bottom-color:#666666;
      border-bottom-style:hidden;
      font-size:14px;
 }
 
 form{
+    background: aqua;
     margin: auto;
-    background: #1c7430;
+}
+form.header{
+    background: #FF0000;
 }
 div .menu:hover{
     border-bottom-style:dotted;
 }
+label{
+    font-weight: bold;
+}
 p{
-    background: crimson;
 }
 label{
-    background: blue;
     width: 100px;
 }
 .menu{
-    color:#FFFFFF; font-weight:600; margin:3px; padding:3px;
+    color: black; font-weight:600; margin:3px; padding:3px;
 }
 #signin{
-    background: #FF0000;
     height: 30px;
     width: 150px;
 }
 .booktable{
-    background: #0099FF;
     margin: auto;
     width: 1200px;
 }
@@ -43,6 +43,17 @@ label{
     float: right;
 }
 .center{
+    width: 250px;
+    height: 30px;
+    margin: 0 auto;
+}
+.userinforbg{
+    width: 600px;
+    height: 250px;
+    background: aqua;
+    margin: 0 auto;
+}
+.userinforcenter{
     width: 250px;
     height: 30px;
     margin: 0 auto;
@@ -70,7 +81,6 @@ label{
     margin: 0 auto;
 }
 .bookinfo{
-    background: blue;
     margin-left: 45%;
     width: 600px;
     height: 300px;
