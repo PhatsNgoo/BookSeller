@@ -60,7 +60,7 @@ class Controller{
             echo '<th scope="col">'.$row['Title'].'</th>';
             echo '<th scope="col"><a href="http://www.bookseller.com/?author='.$row['Author'].'">'.$row['Author'].'</a></th>';
             echo '<th scope="col"><a href="http://www.bookseller.com/?category='.$row['Category'].'">'.$row['Category'].'</a></th>';
-            echo '<th scope="col">'.$row['Price'].'</th>';
+            echo '<th scope="col">'.$row['Price'].'$</th>';
             echo '<th ><a href="http://www.bookseller.com/view/ViewBook.php/?f=View&id='.$row['BookID'].'"> <img onc width="90px" height="90px" src="http://www.bookseller.com/Assets/BooksImage/'.$row['BookID'].'.jpg"><a></th>';
             echo '</tr>';
         }
