@@ -30,6 +30,7 @@ if (isset($_POST['LogOut'])){
         else{
             echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/SubmitGift.php\'">Submit Gift</button>';
         }
+        echo '<button class="menu" onclick="window.location.href=\'http://www.bookseller.com/view/ViewOrder.php\'">View Orders</button>';
         echo '<FORM class="header" action="http://www.bookseller.com/index.php" method="post" id="form-login">
             <input class="menu" type="submit" name="LogOut" value="LogOut">
         </FORM>';
