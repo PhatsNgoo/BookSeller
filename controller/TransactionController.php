@@ -49,7 +49,20 @@ class TransactionController{
         while($row = mysqli_fetch_assoc($orderTable)) {
             echo '<tr>';
             echo '<th scope="col">'.$row['TransactionID'].'</th>';
-            echo '<th scope="col">'.$row['State'].'</th>';
+            switch ($row['State']){
+                case 1:
+                    echo '<th scope="col" style="width: 100px">On Queue</th>';
+                    break;
+                case 2:
+                    echo '<th scope="col" style="width: 100px">Shipping</th>';
+                    break;
+                case 3:
+                    echo '<th scope="col" style="width: 100px">Done</th>';
+                    break;
+                case 4:
+                    echo '<th scope="col" style="width: 100px">Fail</th>';
+                    break;
+            }
             echo '<th scope="col">'.$dataMng->GetBookName($row['BookID'])[0].'</th>';
             echo '<th scope="col">'.$row['UserName'].'</th>';
             echo '<th scope="col">'.$row['ShippingAddress'].'</th>';
