@@ -30,5 +30,15 @@ class Transaction{
             return false;
         }
     }
+    public static function UpdateTransaction($transactionID,$value){
+        $dataMng=new DataManager();
+        $result=$dataMng->UpdateTransaction($transactionID,$value);
+        if ($result){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>
