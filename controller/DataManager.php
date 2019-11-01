@@ -161,6 +161,16 @@ class DataManager{
             return false;
         }
     }
+    public function UpdateTransaction($transactionID,$value){
+        $Query='Update transaction set State="'.$value.'" where TransactionID="'.$transactionID.'"';
+        $result=mysqli_query($this->conn,$Query);
+        if ($result){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     public function GetAllOrders(){
         $Query='select * from transaction';
         $result=mysqli_query($this->conn,$Query);
